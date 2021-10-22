@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/lock")
+@RequestMapping("")
 public class MapLockController {
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity getLock() {
         try {
             return ResponseEntity.ok("РАБОТАЕМ!");
