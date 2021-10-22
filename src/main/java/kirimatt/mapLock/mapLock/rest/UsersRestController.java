@@ -1,6 +1,6 @@
 package kirimatt.mapLock.mapLock.rest;
 
-import kirimatt.mapLock.mapLock.model.User;
+import kirimatt.mapLock.mapLock.model.Developer;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,35 +14,35 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping("/api/v1/users")
 public class UsersRestController {
-    private List<User> users = Stream.of(
-            new User(1L, "kirimatt", "radical"),
-            new User(2L, "seal", "seal")
+    private List<Developer> developers = Stream.of(
+            new Developer(1L, "kirimatt", "radical"),
+            new Developer(2L, "seal", "seal")
     ).collect(Collectors.toList());
 
     @GetMapping
-    public List<User> getAll() {
-        return users;
+    public List<Developer> getAll() {
+        return developers;
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('users:read')")
-    public User getById(@PathVariable Long id) {
-        return users.stream().filter(user -> user.getId().equals(id))
+    public Developer getById(@PathVariable Long id) {
+        return developers.stream().filter(developer -> developer.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
     @PostMapping
     @PreAuthorize("hasAuthority('users:write')")
-    public User create(@RequestBody User user) {
-        this.users.add(user);
-        return user;
+    public Developer create(@RequestBody Developer developer) {
+        this.developers.add(developer);
+        return developer;
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('users:write')")
     public void deleteById(@PathVariable long id) {
-        this.users.removeIf(user -> user.getId().equals(id));
+        this.developers.removeIf(developer -> developer.getId().equals(id));
     }
 
 
