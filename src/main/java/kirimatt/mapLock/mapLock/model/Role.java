@@ -10,18 +10,23 @@ import java.util.stream.Collectors;
 /**
  * @author azamat
  */
-
-@AllArgsConstructor
-@Getter
 public enum Role {
-    USER(Set.of(Permisson.USERS_READ)),
-    ADMIN(Set.of(Permisson.USERS_READ, Permisson.USERS_WRITE));
+    USER(Set.of(Permission.USERS_READ)),
+    ADMIN(Set.of(Permission.USERS_READ, Permission.USERS_WRITE));
 
-    private final Set<Permisson> permissons;
+    private final Set<Permission> permissions;
+
+    Role(Set<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
+    public Set<Permission> getPermissions() {
+        return permissions;
+    }
 
     public Set<SimpleGrantedAuthority> getAuthorities() {
-        return getPermissons().stream()
-                .map(permisson -> new SimpleGrantedAuthority(permisson.getPermission()))
+        return getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
     }
 }

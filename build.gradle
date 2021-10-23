@@ -26,9 +26,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	implementation files(
-			'./libs/postgresql-42.3.0.jar'
-	)
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
