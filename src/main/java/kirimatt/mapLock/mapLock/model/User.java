@@ -29,4 +29,6 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
     private Status status;
+    @Column(name = "activation_code")
+    private String activationCode;
 }
