@@ -8,6 +8,11 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
+/**
+ * Класс для включения Email конфигурации в контекст
+ *
+ * @author azamat
+ */
 @Configuration
 public class MailConfig {
     @Value("${spring.mail.host}")

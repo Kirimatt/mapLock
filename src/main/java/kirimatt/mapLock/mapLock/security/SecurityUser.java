@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
+ * Класс реализующий UserDetails из Spring Security
+ *
  * @author azamat
  */
 @Data

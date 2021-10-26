@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 /**
+ * Интерфейс репозитория пользователя
+ *
  * @author azamat
  */
 public interface UserRepository extends JpaRepository<User, Long> {

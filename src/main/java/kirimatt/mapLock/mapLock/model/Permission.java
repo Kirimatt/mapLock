@@ -1,6 +1,8 @@
 package kirimatt.mapLock.mapLock.model;
 
 /**
+ * Перечисление доступных прав пользователя
+ *
  * @author azamat
  */
 public enum Permission {

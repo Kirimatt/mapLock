@@ -1,7 +1,6 @@
 package kirimatt.mapLock.mapLock.security;
 
 import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -16,6 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
 
+/**
+ * Класс поставки токенов
+ *
+ * @author azamat
+ */
 @Component
 public class JwtTokenProvider {
 

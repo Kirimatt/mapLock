@@ -9,8 +9,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * Устаревший класс для отображения корректности ответов
+ *
  * @author azamat
  */
+@Deprecated
 @RestController
 @RequestMapping("/api/v1/users")
 public class UsersRestController {

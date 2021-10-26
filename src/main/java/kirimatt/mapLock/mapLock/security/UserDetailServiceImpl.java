@@ -1,21 +1,17 @@
 package kirimatt.mapLock.mapLock.security;
 
-import kirimatt.mapLock.mapLock.config.SecurityConfig;
 import kirimatt.mapLock.mapLock.model.Role;
 import kirimatt.mapLock.mapLock.model.Status;
 import kirimatt.mapLock.mapLock.model.User;
 import kirimatt.mapLock.mapLock.repository.UserRepository;
 import kirimatt.mapLock.mapLock.service.MailSender;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -24,16 +20,14 @@ import java.util.UUID;
 @Service("userDetailServiceImpl")
 public class UserDetailServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private ApplicationContext context;
-
     private final UserRepository userRepository;
+    private final ApplicationContext context;
+    private final MailSender mailSender;
 
-    @Autowired
-    private MailSender mailSender;
-
-    public UserDetailServiceImpl(UserRepository userRepository) {
+    public UserDetailServiceImpl(UserRepository userRepository, ApplicationContext context, MailSender mailSender) {
         this.userRepository = userRepository;
+        this.context = context;
+        this.mailSender = mailSender;
     }
 
     @Override
@@ -49,6 +43,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     .orElseThrow(() -> new UsernameNotFoundException("User doesn't exist"));
         } catch (UsernameNotFoundException e) {
 
+            //TODO: Передавать открытый пароль по сети не есть хорошо, поэтому надо извлекать хэш на конечном
+            // приложении и отправлять.
             user.setPassword(
                     context.getBean(PasswordEncoder.class).encode(user.getPassword())
             );

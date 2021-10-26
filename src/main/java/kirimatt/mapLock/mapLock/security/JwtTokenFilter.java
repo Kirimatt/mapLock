@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Класс фильтрации токенов по их expired дате
+ *
+ * @author azamat
+ */
 @Component
 public class JwtTokenFilter extends GenericFilterBean {
 

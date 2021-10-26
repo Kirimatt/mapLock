@@ -4,14 +4,12 @@ import kirimatt.mapLock.mapLock.model.User;
 import kirimatt.mapLock.mapLock.repository.UserRepository;
 import kirimatt.mapLock.mapLock.security.JwtTokenProvider;
 import kirimatt.mapLock.mapLock.security.UserDetailServiceImpl;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.ui.Model;
@@ -22,6 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Rest-контроллер отвечающий за взаимодействие с пользователем
+ *
+ * @author azamat
+ */
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthenticationRestControllerV1 {

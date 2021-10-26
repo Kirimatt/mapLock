@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode
+@Deprecated
 public class Developer {
     private Long id;
     private String firstName;
