@@ -1,10 +1,12 @@
-package kirimatt.mapLock.mapLock.security;
+package kirimatt.mapLock.mapLock.service;
 
 import kirimatt.mapLock.mapLock.model.Role;
 import kirimatt.mapLock.mapLock.model.Status;
 import kirimatt.mapLock.mapLock.model.User;
 import kirimatt.mapLock.mapLock.repository.UserRepository;
-import kirimatt.mapLock.mapLock.service.MailSender;
+import kirimatt.mapLock.mapLock.exceptions.JwtAuthenticationException;
+import kirimatt.mapLock.mapLock.security.SecurityUser;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,6 +25,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
     private final ApplicationContext context;
     private final MailSender mailSender;
+
+    @Value("${mail.url}")
+    private String urlToSend;
 
     public UserDetailServiceImpl(UserRepository userRepository, ApplicationContext context, MailSender mailSender) {
         this.userRepository = userRepository;
@@ -58,8 +63,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
                 String message = String.format(
                         "Hello, %s \n" +
                                 "Welcome to Map Lock. Please, visit next link: " +
-                                "http://localhost:8080/api/v1/auth/activate/%s",
+                                "%s/%s",
                         user.getFirstName(),
+                        urlToSend,
                         user.getActivationCode()
                 );
 

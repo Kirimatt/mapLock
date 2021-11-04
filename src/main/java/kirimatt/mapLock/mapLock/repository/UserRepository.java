@@ -11,10 +11,11 @@ import java.util.Optional;
  * @author azamat
  */
 public interface UserRepository extends JpaRepository<User, Long> {
+
     Optional<User> findByEmail(String email);
+
+    Optional<User> findById(Long id);
 
     Optional<User> findByActivationCode(String code);
 
-    @Override
-    <S extends User> S saveAndFlush(S entity);
 }

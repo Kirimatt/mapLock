@@ -1,6 +1,7 @@
 package kirimatt.mapLock.mapLock.security;
 
 import io.jsonwebtoken.*;
+import kirimatt.mapLock.mapLock.exceptions.JwtAuthenticationException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;

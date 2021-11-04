@@ -3,7 +3,7 @@ package kirimatt.mapLock.mapLock.rest;
 import kirimatt.mapLock.mapLock.model.User;
 import kirimatt.mapLock.mapLock.repository.UserRepository;
 import kirimatt.mapLock.mapLock.security.JwtTokenProvider;
-import kirimatt.mapLock.mapLock.security.UserDetailServiceImpl;
+import kirimatt.mapLock.mapLock.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,7 +72,6 @@ public class AuthenticationRestControllerV1 {
 
     @PostMapping("/registration")
     public ResponseEntity<?> registration(@RequestBody User user) {
-
         return ResponseEntity.ok(userDetailService.addUser(user));
     }
 

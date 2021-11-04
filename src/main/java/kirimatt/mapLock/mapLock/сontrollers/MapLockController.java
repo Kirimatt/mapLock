@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MapLockController {
 
     @GetMapping("")
-    public ResponseEntity getLock() {
+    public ResponseEntity<?> getLock() {
         try {
             return ResponseEntity.ok("РАБОТАЕМ!");
         } catch (Exception e) {

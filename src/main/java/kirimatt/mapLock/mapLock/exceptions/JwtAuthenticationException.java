@@ -1,4 +1,4 @@
-package kirimatt.mapLock.mapLock.security;
+package kirimatt.mapLock.mapLock.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

@@ -7,6 +7,7 @@ package kirimatt.mapLock.mapLock.model;
  */
 public enum Permission {
     USERS_READ("users:read"),
+    USERS_WRITE_CREDENTIALS("users:writeCredentials"),
     USERS_WRITE("users:write");
 
     private final String permission;

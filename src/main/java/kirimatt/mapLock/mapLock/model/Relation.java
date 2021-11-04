@@ -16,13 +16,13 @@ import java.time.LocalDateTime;
 public class Relation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name = "first_user_id")
-    private long firstUserId;
+    private Long firstUserId;
     @Column(name = "second_user_id")
-    private long secondUserId;
+    private Long secondUserId;
     @Column(name = "date")
     private LocalDateTime date;
     @Column(name = "approved")
-    private boolean approved;
+    private Boolean approved;
 }

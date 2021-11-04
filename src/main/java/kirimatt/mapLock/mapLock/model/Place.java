@@ -15,12 +15,12 @@ import javax.persistence.*;
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name = "latitude")
-    private float latitude;
+    private Double latitude;
     @Column(name = "longitude")
-    private float longitude;
+    private Double longitude;
     @Column(name = "relation_id")
-    private long relationId;
+    private Long relationId;
 
 }
