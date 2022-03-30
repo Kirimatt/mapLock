@@ -1,4 +1,4 @@
-package kirimatt.mapLock.mapLock.service.сontrollers;
+package kirimatt.mapLock.mapLock.сontrollers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
