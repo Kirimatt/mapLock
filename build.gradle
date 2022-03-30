@@ -40,16 +40,7 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
-jar {
-	baseName = 'mapLock'
-	version = '0.0.1'
 
-	manifest {
-		attributes(
-				'Main-Class': 'kirimatt.mapLock.mapLock.MapLockApplication'
-		)
-	}
-}
 
 test {
 	useJUnitPlatform()
