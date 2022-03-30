@@ -1,4 +1,4 @@
-package kirimatt.mapLock.mapLock.сontrollers;
+package kirimatt.mapLock.mapLock.service.сontrollers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
