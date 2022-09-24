@@ -45,14 +45,14 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || !o.getClass().equals(this.getClass())) return  false;
+        if (Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         User user = (User) o;
         return id != null && Objects.equals(id, user.id);
     }
 
     @Override
     public int hashCode() {
-        //TODO: Проверить
-        return 0;
+        return Objects.hash(id, email, firstName, lastName, role, status);
     }
 }
